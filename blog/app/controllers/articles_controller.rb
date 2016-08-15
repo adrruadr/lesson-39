@@ -1,13 +1,18 @@
 class ArticlesController < ApplicationController
 
- def show 
+def index
+ @articles = Article.all 
+end
+
+def show 
   @article = Article.find(params[:id])
- end
+end
 
- def new
+def new
 
-  end
-  def create
+end
+
+def create
 
     @article = Article.new(article_params)
     if @article.valid?
@@ -16,13 +21,13 @@ class ArticlesController < ApplicationController
     else
       render action: 'new'
     end
-  end
+end
 
-  private
+private
 
-  def article_params
+def article_params
     params.require(:article).permit(:title,:text)
-  end
+end
 
 
 end
