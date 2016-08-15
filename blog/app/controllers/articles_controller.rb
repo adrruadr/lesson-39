@@ -42,11 +42,21 @@ def create
       @article.save
       redirect_to @article
     else
-      render action: 'new'
+      render action: 'show'
     end
 end
 
 
+def destroy
+  @article = Article.delete(params[:id])
+  if 
+      @article.save
+      redirect_to @article
+    else
+      render action: 'new'
+    end
+
+end
 
 
 private
